@@ -1,0 +1,907 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Global Reset and Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+/* CSS Variables */
+:root {
+    --lead: #212121;
+    --gold-finger: #F2BD12;
+    --eye-ball: #FFFDF7;
+    --hint-yellow: #FCF1CC;
+    --PURE-WHITE: #FFF;
+    --MOBILE-MENU-WIDTH: 280px; /* 🛑 NEW: Define a fixed width for the sidebar menu */
+}
+
+body {
+    background: var(--eye-ball);
+    padding-bottom: 20px; 
+}
+
+/* Basic Styling */
+a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--lead);
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+li {
+    list-style: none;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.gap-3 {
+    gap: 3rem;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: auto;
+    padding-inline: 1.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+.p-top {
+    padding-top: 10rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 4rem;
+}
+
+.mt-half {
+    margin-top: .5rem;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.mt-one-half {
+    margin-top: 1.5rem;
+}
+
+/* Hover Effects */
+.input-container {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.input-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px) scale(1.05);
+}
+
+.social-icon {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* -------------------------------------- */
+/* Header Styling Start (Fixed & Consistent) */
+/* -------------------------------------- */
+header {
+    background: var(--eye-ball);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    min-height: 10vh;
+    padding-block: 0.5rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gold-finger);
+}
+
+.btn {
+    display: inline-block;
+    padding: .9rem 2rem;
+    background: var(--gold-finger);
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    color: var(--PURE-WHITE);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 1px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--lead);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.navlist li a:hover {
+    color: #F2BD12;
+}
+
+/* 🛑 MOBILE MENU STYLES - CHANGED TO A SIDEBAR (FIXED WIDTH) */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--MOBILE-MENU-WIDTH); /* Fixed width using the new variable */
+    height: 100%;
+    background: var(--eye-ball); /* Use eye-ball background for a lighter sidebar */
+    padding-top: 5rem; /* Adjusted padding */
+    padding-inline: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Reduced gap */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15); /* Add shadow for panel look */
+}
+
+.mobile-menu-active {
+    transform: translateX(0);
+}
+
+.mobile-menu li {
+    width: 100%; /* Ensure links take full width of the menu */
+    text-align: center;
+}
+
+.mobile-menu li a {
+    color: var(--lead); /* Use lead color for better contrast on eye-ball background */
+    font-size: 1.3rem;
+    display: block;
+    padding: 0.75rem 0;
+}
+
+.mobile-menu li a:hover {
+    color: var(--gold-finger);
+}
+
+.mobile-menu .btn {
+    width: 100%; /* Buttons fit the new narrow menu width */
+    max-width: none;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+/* 🛑 NEW: Close button inside the mobile menu panel */
+.mobile-menu-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--lead);
+    cursor: pointer;
+}
+
+
+/* Hamburger button styling (hidden on desktop) */
+.desktop-action .hamburger {
+    display: none; 
+    font-size: 1.5rem;
+    color: var(--lead);
+    cursor: pointer;
+}
+
+.cart-icon {
+    color: var(--lead);
+    font-size: 1.3rem;
+    position: relative;
+}
+
+.cart-icon .cart-value {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    font-size: .85rem;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    background: var(--gold-finger);
+    color: var(--lead);
+    text-align: center;
+    line-height: 20px;
+}
+
+/* Ensure desktop navigation links and actions are flex */
+.navlist,
+.desktop-action {
+    display: flex;
+}
+
+/* header styling end */
+
+/* -------------------------------------- */
+/* Hero Section Styling Starts */
+/* -------------------------------------- */
+.hero-section {
+    min-height: 86vh;
+}
+
+.content,
+.image-container,
+.service-card {
+    flex: 1;
+    flex-basis: 300px;
+}
+
+h1 {
+    font-size: 5.6vw;
+    color: var(--lead);
+}
+
+h1 span {
+    color: var(--gold-finger);
+}
+
+p {
+    font-size: 1.25rem;
+    color: gray;
+    line-height: 1.8rem;
+}
+
+.para {
+    margin-block: 2rem;
+    max-width: 550px;
+}
+
+.social-icon {
+    background: var(--hint-yellow);
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 1px;
+    transition: .3s ease-in-out;
+}
+
+.social-icon:hover {
+    background: var(--lead);
+    color: var(--PURE-WHITE);
+}
+/* hero section styling end*/
+
+/* -------------------------------------- */
+/* Service Section Styling Start */
+/* -------------------------------------- */
+h5 {
+    font-size: 1.2rem;
+    letter-spacing: .2rem;
+    color: var(--gold-finger);
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 3.7rem;
+    text-transform: capitalize;
+    color: var(--lead);
+}
+
+h3 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: var(--lead);
+}
+
+.service-card h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+/* service section styling end*/
+
+/* -------------------------------------- */
+/* Menu Section Styling Start */
+/* -------------------------------------- */
+.order-card {
+    flex: 1;
+    flex-basis: 300px;
+    background: var(--PURE-WHITE);
+    padding: 0 1rem 2rem 1rem;
+    border: .1rem solid var(--gold-finger);
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 8px 8px 8px, rgba(0, 0, 0, 0.05) 8px 8px 8px inset;
+    transition: .3s ease-in-out;
+}
+
+.order-card:hover {
+    transform: translateY(-10px);
+}
+
+.order-card img {
+    width: 15rem;
+    filter: drop-shadow(rgba(0, 0, 0, 0.2) 0 10px 10px);
+}
+
+h4 {
+    font-size: 1.8rem;
+    color: var(--lead);
+}
+
+.order-card .price {
+    font-size: 1.7rem;
+    color: var(--gold-finger);
+    padding: 1.3rem 0 2rem 0;
+}
+
+/* Cart Tab Styling Start */
+.cart-tab {
+    background: var(--hint-yellow);
+    position: fixed;
+    inset: 0 -500px 0 auto;
+    width: 25rem;
+    padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    box-shadow: rgba(0, 0, 0, 0.1) -10px -10px 20px;
+    transition: .3s ease-in-out;
+}
+
+.cart-tab-active {
+    inset: 0 0 0 auto;
+}
+
+.cart-list {
+    flex: 1;
+    width: 100%;
+    margin-top: 1.5rem;
+    overflow: auto;
+}
+
+.cart-list::-webkit-scrollbar {
+    width: 0;
+}
+
+.total-container {
+    width: 100%;
+    background: var(--gold-finger);
+    text-align: center;
+    margin-block: 1rem;
+    padding-block: 1rem;
+}
+
+.total-container h4 {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.btn-container .btn {
+    background: var(--lead);
+    transition: .3s ease-in-out;
+}
+
+.btn-container .btn:hover {
+    background: var(--gold-finger);
+    color: var(--lead);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .7rem 1rem;
+    transition: all .5s ease-in-out;
+}
+
+.item.slide-out {
+    transform: translateX(50%);
+}
+
+.cart-list .item:nth-child(even) {
+    background: var(--eye-ball);
+}
+
+.item.detail {
+    flex: 2;
+}
+
+.item .item-image img {
+    width: 5rem;
+}
+
+.item h4 {
+    font-size: 1.3rem;
+    color: var(--lead);
+}
+
+.item .item-total {
+    font-weight: 400;
+    margin-top: .3rem;
+}
+
+.quantity-btn {
+    background: var(--lead);
+    color: var(--PURE-WHITE);
+    width: 1.7rem;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    text-align: center;
+    line-height: 1.7rem;
+    transition: .3s ease-in-out;
+}
+
+.quantity-btn:hover {
+    transform: scale(1.1);
+}
+
+.quantity-value {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-inline: .6rem;
+}
+
+/* cart tab styling end*/
+
+/* -------------------------------------- */
+/* Review Section Styling Start */
+/* -------------------------------------- */
+.review-container {
+    width: 650px;
+    max-width: 100%;
+    flex: 1;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.profile {
+    width: 4rem;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    overflow: hidden;
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fa-star {
+    color: var(--gold-finger);
+}
+
+.arrow {
+    width: 2.5rem;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    background: var(--gold-finger);
+    color: var(--lead);
+    text-align: center;
+    line-height: 2.5rem;
+}
+
+/* review section styling end*/
+
+/* -------------------------------------- */
+/* Application Section Styling Start */
+/* -------------------------------------- */
+.app-container {
+    background: var(--hint-yellow);
+    padding: 3rem 6rem;
+    border-radius: 3rem;
+}
+
+.app-container .image-container img {
+    width: 25rem;
+}
+
+.app-container .content h2 {
+    font-size: 4.5rem;
+}
+
+/* application section end*/
+
+/* -------------------------------------- */
+/* Contact Us Section Styling Start */
+/* -------------------------------------- */
+.input-container {
+    width: 43rem;
+    max-width: 100%;
+    background: var(--PURE-WHITE);
+    padding: .8rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 5px 8px;
+    border-radius: 1rem;
+    margin: 4rem auto 0 auto;
+}
+
+input[type="email"] {
+    flex: 1;
+    height: 7vh;
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    padding-left: 1rem;
+}
+
+input[type="email"]:focus {
+    outline: none;
+}
+
+/* contactus Section styling end*/
+
+/* -------------------------------------- */
+/* Footer Styling */
+/* -------------------------------------- */
+.footer-container {
+    margin-top: 10rem;
+    padding-block: 4rem;
+    background: var(--hint-yellow);
+}
+
+.footer-container .flex {
+    align-items: flex-start;
+}
+
+.footer-wrapper {
+    flex: 1;
+    flex-basis: 150px;
+}
+
+.footer-wrapper:nth-child(1) {
+    flex: 2;
+    flex-basis: 300px;
+}
+
+.footer-wrapper .social-icon {
+    background: var(--PURE-WHITE);
+}
+
+.footer-wrapper .social-icon:hover {
+    background: var(--lead);
+    color: var(--PURE-WHITE);
+}
+
+.footer-link {
+    color: gray;
+    font-size: 1.1rem;
+    transition: .3s ease-in-out;
+}
+
+.footer-link:hover {
+    color: var(--lead);
+}
+
+/* -------------------------------------- */
+/* Forms Styling (Modals) */
+/* -------------------------------------- */
+.form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.form-container.active {
+    display: flex;
+}
+
+.form {
+    background: var(--PURE-WHITE);
+    padding: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+}
+
+.form h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form input {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid var(--hint-yellow);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.form .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form p {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.close-form-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--lead);
+}
+
+.register-link {
+    color: var(--gold-finger);
+    font-size: 1rem;
+}
+
+/* -------------------------------------- */
+/* Notification Styling */
+/* -------------------------------------- */
+.notification-area {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.notification-message {
+    min-width: 280px;
+    max-width: 350px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    color: var(--PURE-WHITE);
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateX(0);
+    background-color: var(--lead);
+}
+
+.notification-message.success {
+    background-color: #4CAF50;
+}
+
+.notification-message.error {
+    background-color: #F44336;
+}
+
+.notification-message img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: #F2BD12 2px solid;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.notification-message p {
+    margin: 0;
+    color: var(--PURE-WHITE);
+    line-height: 1.3;
+}
+
+.notification-message p:first-child {
+    font-size: 1.3em;
+    font-weight: 700;
+    flex-shrink: 0;
+    text-align: right;
+    min-width: 20px;
+}
+
+.notification-message p:last-child {
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* -------------------------------------- */
+/* Sidebar Styling (Account Sidebar) */
+/* -------------------------------------- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2000;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* Close button styling */
+.close-sidebar-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2rem;
+    color: #333;
+    text-decoration: none;
+}
+
+/* List item styling */
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.sidebar-links li {
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.sidebar-links a:hover {
+    color: #F2BD12;
+}
+
+.sidebar-links i {
+    font-size: 1.5rem;
+    width: 25px;
+    text-align: center;
+}
+
+/* -------------------------------------- */
+/* Media Queries (Adjusted for Mobile Menu on Small Screens) */
+/* -------------------------------------- */
+
+@media screen and (max-width: 950px) {
+    body{
+        padding: 20px;
+    }
+    /* Tablet screens - Keep links visible but reduce gap */
+    .gap-3 {
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    /* Small screens (Mobile View) */
+    
+    /* HIDE desktop links, SHOW hamburger */
+    .navlist {
+        display: none; 
+    }
+
+    .desktop-action .hamburger {
+        display: block; /* Show hamburger icon */
+        order: 3; /* Place hamburger at the end */
+    }
+    
+    /* Adjust navbar to fit Logo, Cart, Buttons on one line */
+    .navbar {
+        min-height: 8vh;
+        padding-block: 0.5rem;
+        flex-direction: row; 
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    
+    .desktop-action {
+        display: flex;
+        gap: 0.5rem; 
+        align-items: center;
+    }
+    
+    /* Shrink the buttons for tight horizontal space */
+    .btn {
+        padding: .5rem 0.8rem;
+        font-size: 0.8rem;
+        border-radius: 0.8rem;
+    }
+
+    /* Cart and Logo adjustments */
+    .cart-icon {
+        font-size: 1.1rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    /* Remove wrapper padding to gain horizontal space */
+    .wrapper {
+        padding-inline: 0.5rem;
+    }
+    
+    /* Hero section and other content adjustments */
+    h1 {
+        font-size: 3.6rem;
+    }
+
+    .content {
+        padding-top: 3rem;
+    }
+    
+    .gap-2 {
+        gap: 1.4rem;
+    }
+
+    .gap-4 {
+        gap: 4rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .app-container {
+        padding: 2.2rem;
+    }
+
+    .app-container .content h2 {
+        font-size: 3.5rem;
+    }
+
+    .form {
+        padding: 2rem;
+    }
+}
